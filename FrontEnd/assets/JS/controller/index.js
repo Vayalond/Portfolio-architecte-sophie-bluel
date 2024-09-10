@@ -30,10 +30,6 @@ async function filters(idcategory) {
   }
 }
 
-async function backendworks() {
-  const reponse = await fetch("http://localhost:5678/api/works");
-  return await reponse.json();
-}
 
 async function init() {
   try {
@@ -48,6 +44,7 @@ async function init() {
     bouton.addEventListener('click', () => filters(index))
   );
 }
+
 
 init();
 

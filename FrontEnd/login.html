@@ -15,25 +15,58 @@
 </head>
 
 <body>
-    <header>
+	<header>
 		<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 		<nav>
 			<ul>
 				<li><a href="index.html">projets</li></a>
 				<li>contact</li>
-				<li><a href="login.html">login</li></a> 
+				<li><a href="login.html">login</li></a>
 				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
 		</nav>
 	</header>
-    <main>
+	<main>
 
-<h1>test</h1>
+		<div class="login">
+			<h2>Log In</h2>
+		</div>
+
+		<form>
+			<section class="login" >
+
+				<label>E-mail</label>
+				<div>
+					<input type="e-mail" name="Email" id="login">
+				</div>
+			</section>
 
 
+			<section class="login" >
+				<label>Mot de Passe</label>
+				<div>
+					<input type="password" name="password" id="password">
+				</div>
 
-    </main>
-    <footer>
+			</section>
+
+
+			<section class="login">
+				<button id="buttonlogin">
+					<p>Se connecter</p>
+				</button>
+			</section>
+		</form>
+
+		<section class="login">
+			<a href="">
+				<p>Mot de passe oublié</p>
+			</a>
+		</section>
+
+
+	</main>
+	<footer>
 		<nav>
 			<ul>
 				<li>Mentions Légales</li>
@@ -41,6 +74,7 @@
 		</nav>
 	</footer>
 </body>
-<script src="./assets/script.js"></script>
+<script src="./assets/JS/service/userService.js"></script>
+<script src="./assets/JS/controller/login.js"></script>
 
 </html>
