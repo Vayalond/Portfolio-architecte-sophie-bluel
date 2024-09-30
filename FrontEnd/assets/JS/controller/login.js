@@ -3,24 +3,17 @@ async function login() {
     let login = document.getElementById("login").value;
     let password = document.getElementById("password").value;
     let retourBackend = await loguser(login, password);
-    console.log(retourBackend);
-   /* if (userId === 1) {
-
-    }
-    else {
-      console.error("User not found :", error);
-    } */
+    sessionStorage.setItem("token", retourBackend.token);
+    window.location.replace("index.html")
   }
   catch (error) {
-    console.error("Erreur lors de la récupération coté backend :", error);
+    console.log("Erreur lors de l'appel au backend : ", error)
   }
-
 }
 
-
-
-document.getElementById("buttonlogin").addEventListener('click', (evenement) =>  {
+document.getElementById("buttonlogin").addEventListener('click', (evenement) => {
   evenement.preventDefault();
-  login(); 
-
+  login();
 });
+
+

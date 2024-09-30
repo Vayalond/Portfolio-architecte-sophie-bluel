@@ -48,3 +48,23 @@ async function init() {
 
 init();
 
+function isconnected() {
+  if (sessionStorage.getItem("token")) {
+    document.getElementById("edition").innerHTML = "<p>mode édition</p>";
+    document.getElementById("edition").classList.add("editheader")
+    document.getElementById("projets").innerHTML = "<p>modifier</p>";
+    document.getElementById("loginheader").innerHTML = "<button onclick=\"deconnexion()\"> logout</button>";
+  }
+
+}
+
+isconnected();
+
+function deconnexion() {
+  if (sessionStorage.getItem("token")) {
+    sessionStorage.removeItem("token");
+    document.getElementById("edition").classList.remove("editheader");
+    document.getElementById("loginheader").innerHTML = "<a href=\"login.html\">login</a>";
+  }
+}
+

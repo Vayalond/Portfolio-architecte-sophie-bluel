@@ -9,5 +9,15 @@ async function loguser(email, password) {
       "Content-Type": "application/json"
     }
   });
-  return await reponse.json();
+
+  if (reponse.status === 200) {
+    return await reponse.json();
+  } else if (reponse.status === 404) {
+    window.alert("Utilisateur non trouvé");
+    throw new Error("Erreur 404 : utilisateur non trouvé");
+    
+  } else if (reponse.status === 401) {
+    window.alert("Mot de passe incorrect");
+    throw new Error("Erreur 401 : mot de passe incorrect");
+  }
 }

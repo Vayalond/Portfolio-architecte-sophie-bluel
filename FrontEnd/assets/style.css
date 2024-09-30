@@ -342,3 +342,23 @@ footer nav ul {
 .mdp {
 	text-underline-position: auto;
 }
+
+.editheader {
+	display: flex;
+	width: 100%;
+	background-color: #000000;
+	color: #FFFFFF;
+	justify-content: center;
+	height: 59px;
+}
+
+.editheader p {
+	display: flex;
+	justify-content: center;
+	width: 129px;
+	height: 19px;
+	padding-left: 540px;
+	padding-top: 19px;
+	font-weight: 400 ;
+	font-size: 16px;
+}
