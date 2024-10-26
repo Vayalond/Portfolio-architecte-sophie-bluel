@@ -357,8 +357,93 @@ footer nav ul {
 	justify-content: center;
 	width: 129px;
 	height: 19px;
-	padding-left: 540px;
 	padding-top: 19px;
-	font-weight: 400 ;
+	font-weight: 400;
 	font-size: 16px;
+}
+
+.modal {
+	background: rgba(0, 0, 0, 0.3);
+	display: flex;
+	position: fixed;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.modal-wrapper {
+	width: 630px;
+	height: 688px;
+	background-color: #FFFFFF;
+	border-radius: 10px;
+
+}
+
+.buttonmodal {
+	display: flex;
+	justify-content: center;
+	font-weight: bold;
+	font-size: medium;
+	border-style: solid;
+	border-radius: 60px;
+	border-width: 1px;
+	border-color: #1D6154;
+	width: 237px;
+	height: 36px;
+	background-color: #1D6154;
+	color: #FFFFFF;
+	padding-top: 9px;
+	margin-left: 200px;
+	margin-top: 100px;
+}
+
+.closemodal {
+	display: flex;
+	justify-content: right;
+	width: 24px;
+	height: 24px;
+	margin-left: 580px;
+	margin-top: 25px;
+	cursor: pointer;
+	font-weight: 600;
+}
+
+
+#galeriephoto {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 630px;
+	margin-left: 97px;
+	margin-right: 41px;
+}
+
+#galeriephoto img {
+	height: 102px;
+	width: 76px;
+}
+
+#galeriephoto figure {
+	max-width: 76px;
+	padding: 5px;
+}
+
+#galeriephoto figcaption {
+	display: none;
+}
+
+.titremodal {
+	width: 173px;
+	height: 30px;
+	font-weight: 400;
+	font-size: 26px;
+	padding-left: 220px;
+	padding-bottom: 10px;
+
+}
+
+#modal {
+	display: none;
 }

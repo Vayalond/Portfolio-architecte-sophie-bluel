@@ -11,6 +11,7 @@
 		rel="stylesheet">
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
+	<script src="https://kit.fontawesome.com/c38887c5de.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -23,7 +24,7 @@
 		<nav>
 			<ul>
 				<li><a href="index.html">projets</a></li>
-				<li> <a href="#contact">contact</a></li>
+				<li><a href="#contact">contact</a></li>
 				<li id="loginheader"><a href="login.html">login</a></li>
 				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
@@ -68,6 +69,20 @@
 
 			</div>
 		</section>
+
+
+		<aside id="modal">
+			<div id="modal-gallery" class="modal-wrapper js-modal-stop">
+				<i class="fa-solid fa-x closemodal" id="croix"></i>
+				<p class="titremodal">Galerie Photo</p>
+				<div id="galeriephoto"></div>
+				<button class="buttonmodal" id="ajouter-une-photo">Ajouter une photo</button>
+			</div>
+			<div id="modal-add-photo" class="modal-wrapper js-modal-stop modal2">
+				<button id="button-modal-return"><i class="fa-solid fa-x closemodal" id="croix"></i></button>
+			</div>
+		</aside>
+
 		<section id="contact">
 			<h2>Contact</h2>
 			<p>Vous avez un projet ? Discutons-en !</p>
@@ -91,7 +106,7 @@
 		</nav>
 	</footer>
 </body>
-<script src="./assets/JS/service/works.js"></script>
-<script src="./assets/JS/controller/index.js"></script>
+<script src="./assets/JS/services/worksService.js"></script>
+<script src="./assets/JS/controllers/index.js"></script>
 
 </html>
