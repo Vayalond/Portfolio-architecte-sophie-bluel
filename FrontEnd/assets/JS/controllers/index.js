@@ -94,7 +94,6 @@ function openModal() {
   // Ajoute les écouteurs pour la touche "Escape" et pour le clic en dehors
   window.addEventListener("keydown", closeOnEscape);
   document.getElementById("croix").addEventListener("click", closeModal);
-  //document.addEventListener('click', closeOnClickOutside);
 }
 
 function closeModal() {
@@ -108,9 +107,16 @@ function closeModal() {
     // Retire les écouteurs seulement si la modale est ouverte
     window.removeEventListener("keydown", closeOnEscape);
     document.getElementById("croix").removeEventListener("click", closeModal);
-    //document.removeEventListener("click", closeOnClickOutside);
   }
 }
+
+window.addEventListener('load', function () {
+  document.addEventListener('click', event => {
+    if (event.target.classList.contains('modal')) {
+      closeModal();
+    }
+  });
+});
 
 function closeOnEscape(e) {
   if (e.key === "Escape" || e.key === "Esc") {
