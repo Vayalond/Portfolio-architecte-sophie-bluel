@@ -72,14 +72,49 @@
 
 
 		<aside id="modal">
+
 			<div id="modal-gallery" class="modal-wrapper js-modal-stop">
 				<i class="fa-solid fa-x closemodal" id="croix"></i>
 				<p class="titremodal">Galerie Photo</p>
 				<div id="galeriephoto"></div>
 				<button class="buttonmodal" id="ajouter-une-photo">Ajouter une photo</button>
 			</div>
+
+
 			<div id="modal-add-photo" class="modal-wrapper js-modal-stop modal2">
-				<button id="button-modal-return"><i class="fa-solid fa-x closemodal" id="croix"></i></button>
+				<div>
+					<button id="button-modal-return"><i class="fa-solid fa-arrow-left" id="return"></i></button>
+					<button id="button-modal-close"><i class="fa-solid fa-x closemodal" id="croix"></i></button>
+				</div>
+				<p class="titremodal">Ajout Photo</p>
+				<div>
+					<form>
+						<section>
+							<input type="file" name="Ajouter photo">
+						</section>
+
+						<section>
+							<label>Titre</label>
+							<div>
+								<input type="text" name="Titre" id="titre">
+							</div>
+						</section>
+
+						<section>
+							<label>Catégorie</label>
+							<div>
+								<select id="categories" name="categories">
+									<option value="1">Objets</option>
+									<option value="2">Appartements</option>
+									<option value="3">Hotels & restaurants</option>
+								</select>
+
+							</div>
+						</section>
+
+
+					</form>
+				</div>
 			</div>
 		</aside>
 

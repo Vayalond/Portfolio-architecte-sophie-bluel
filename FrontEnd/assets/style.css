@@ -447,3 +447,17 @@ footer nav ul {
 #modal {
 	display: none;
 }
+
+#return {
+	width: 21px;
+	height: 21px;
+	margin-left: 25px;
+	margin-top: 25px;
+}
+
+
+#titre {
+	width: 420px;
+	height: 51px;
+	margin-left: 90px;
+}

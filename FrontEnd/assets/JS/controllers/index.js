@@ -32,7 +32,7 @@ async function filters(idcategory) {
 
 
 let retourBackend = null;
-
+let isModalOpen = false; // Indicateur d'état de la modale
 async function init() {
   try {
     let gallery = document.getElementById("gallery");
@@ -52,9 +52,9 @@ init();
 
 function isconnected() {
   if (sessionStorage.getItem("token")) {
-    document.getElementById("edition").innerHTML = "<p>mode édition</p>";
+    document.getElementById("edition").innerHTML = `<p><i class="fa-solid fa-pen-to-square"></i>mode édition</p>`;
     document.getElementById("edition").classList.add("editheader");
-    document.getElementById("projets").innerHTML = "<a href=\"#modal\" id=\"bouton-modif\">\"modifier\"</a>";
+    document.getElementById("projets").innerHTML = `<a href=\"#modal\" id=\"bouton-modif\"><i class="fa-solid fa-pen-to-square"></i>\"modifier\"</a>`;
     document.getElementById("loginheader").innerHTML = "<button onclick=\"deconnexion()\"> logout</button>";
   }
 }
@@ -71,51 +71,60 @@ function deconnexion() {
   }
 }
 
-function resetModals(){
-  document.getElementById("modal-gallery").style.display = "block";
+function resetModals() {
+  const modal = document.getElementById("modal");
+
+  if (modal.style.display != "flex") {
+    modal.style.display = "flex";
+  }
+  if (!modal.classList.contains("modal")) {
+    modal.classList.add("modal");
+  }
+
   document.getElementById("modal-add-photo").style.display = "none";
+  document.getElementById("modal-gallery").style.display = "block";
+  isModalOpen = true;
 }
 
 
-
-let modal = null;
-
 function openModal() {
   resetModals();
-  document.getElementById("modal").style.display = "flex";
-  document.getElementById("modal").classList.add("modal");
-  modal = document.getElementById("modal");
-
   document.getElementById("galeriephoto").innerHTML = displayworks(retourBackend);
 
-  window.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" || e.key === "Esc") {
-      closeModal();
-    }
-  })
-
+  // Ajoute les écouteurs pour la touche "Escape" et pour le clic en dehors
+  window.addEventListener("keydown", closeOnEscape);
   document.getElementById("croix").addEventListener("click", closeModal);
-  document.addEventListener('click', (event) => {
-    if (!modal.contains(event.target) && !openModalButton.contains(event.target)) {
-      closeModal();
-    }
-  });
-};
+  //document.addEventListener('click', closeOnClickOutside);
+}
 
 function closeModal() {
-  if (modal === null) {
-    return;
+  const modal = document.getElementById("modal");
+
+  if (isModalOpen) {
+    modal.style.display = "none";
+    modal.classList.remove("modal");
+    isModalOpen = false; // Désactive l'indicateur d'état
+
+    // Retire les écouteurs seulement si la modale est ouverte
+    window.removeEventListener("keydown", closeOnEscape);
+    document.getElementById("croix").removeEventListener("click", closeModal);
+    //document.removeEventListener("click", closeOnClickOutside);
   }
+}
 
-  document.getElementById("croix").removeEventListener("click", closeModal);
-  document.getElementById("modal").classList.remove("modal");
-  document.getElementById("modal").style.display = "none";
+function closeOnEscape(e) {
+  if (e.key === "Escape" || e.key === "Esc") {
+    closeModal();
+  }
+}
 
-  /* modal.removeEventListener("click", closemodal);
-   modal.querySelector(".js-modal-stop").removeEventListener("click", stopPropagation);*/
+function closeOnClickOutside(event) {
+  const modalGallery = document.getElementById("modal-gallery");
+  if (isModalOpen && modalGallery && !modalGallery.contains(event.target)) {
+    closeModal();
+  }
+}
 
-  modal = null;
-};
 
 function stopPropagation() {
   e.stopPropagation();
@@ -131,3 +140,6 @@ document.getElementById("ajouter-une-photo").addEventListener("click", afficherM
 document.getElementById("bouton-modif").addEventListener("click", openModal);
 
 document.getElementById("button-modal-return").addEventListener("click", resetModals);
+
+document.getElementById("button-modal-close").addEventListener("click", closeModal)
+
