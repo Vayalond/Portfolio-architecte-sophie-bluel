@@ -461,3 +461,26 @@ footer nav ul {
 	height: 51px;
 	margin-left: 90px;
 }
+
+#button-modal-close{
+	background: none;
+    border-style: none;
+	display: flex;
+}
+
+#button-modal-return{
+	background: none;
+    border-style: none;
+}
+
+.menu-deroulant{
+	width: 420px;
+	height: 51px;
+	
+}
+
+#categories {
+	width: 420px;
+	height: 51px;
+	margin-left: 95px;
+}

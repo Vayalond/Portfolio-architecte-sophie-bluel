@@ -5,6 +5,7 @@ function displayworks(works) {
     resultat += `<figure>
       <img src="${work.imageUrl}" alt="${work.title}">
       <figcaption>${work.title}</figcaption>
+      <button onclick=\"suprimerelement(${work.id})\"id="${work.id}" class=\"delete\"> delete </button> 
     </figure>`;
   });
 
@@ -90,10 +91,14 @@ function resetModals() {
 function openModal() {
   resetModals();
   document.getElementById("galeriephoto").innerHTML = displayworks(retourBackend);
+  
+ 
 
   // Ajoute les écouteurs pour la touche "Escape" et pour le clic en dehors
   window.addEventListener("keydown", closeOnEscape);
   document.getElementById("croix").addEventListener("click", closeModal);
+  
+
 }
 
 function closeModal() {
@@ -140,12 +145,15 @@ function afficherModaleAjouterUnePhoto() {
   document.getElementById("modal-gallery").style.display = "none";
   document.getElementById("modal-add-photo").style.display = "block";
 }
+function suprimerelement(idwork) {
+  deleteWork(idwork);
+}
 
-document.getElementById("ajouter-une-photo").addEventListener("click", afficherModaleAjouterUnePhoto)
+document.getElementById("ajouter-une-photo").addEventListener("click", afficherModaleAjouterUnePhoto);
 
 document.getElementById("bouton-modif").addEventListener("click", openModal);
 
 document.getElementById("button-modal-return").addEventListener("click", resetModals);
 
-document.getElementById("button-modal-close").addEventListener("click", closeModal)
+document.getElementById("button-modal-close").addEventListener("click", closeModal);
 
